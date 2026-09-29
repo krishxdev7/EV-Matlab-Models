@@ -22,7 +22,7 @@ These sessions were conducted at **Sikkim Manipal Institute of Technology (SMIT)
 - [Models & Simulations](#models--simulations)
   - [1. EV Tractive Effort & Vehicle Dynamics](#1-ev-tractive-effort--vehicle-dynamics)
   - [2. BLDC Motor Drive Model](#2-bldc-motor-drive-model)
-  - [3. PMSM Motor Drive Model](#3-pmsm-motor-drive-model)
+  - [3. Battery Current Source Demonstration Model](#3-battery-current-source-demonstration-model)
 - [Governing Mathematical Equations](#governing-mathematical-equations)
 - [Default Vehicle Parameters](#default-vehicle-parameters)
 - [Prerequisites & Getting Started](#prerequisites--getting-started)
@@ -36,7 +36,7 @@ These sessions were conducted at **Sikkim Manipal Institute of Technology (SMIT)
 The transition towards e-mobility requires multidisciplinary understanding bridging electrical machine drives, power electronics, and mechanical vehicle dynamics. This repository hosts simulation models focused on:
 - Longitudinal vehicle dynamics and tractive force requirements.
 - Sizing and power demand estimations for electric powertrains across variable drive speeds.
-- Motor drive simulations including **Brushless DC (BLDC)** and **Permanent Magnet Synchronous Motors (PMSM)** used in modern EV traction systems.
+- Motor drive simulation for **Brushless DC (BLDC)** traction and EV energy storage modeling through a **Battery Current Source Demonstration** representing battery current and voltage delivery dynamics.
 
 ---
 
@@ -45,17 +45,17 @@ The transition towards e-mobility requires multidisciplinary understanding bridg
 ```text
 EV-Matlab-Models/
 ├── .gitignore                       # Ignored files (.DS_Store, MATLAB autosaves, cache)
+├── Battery_current_source_demonstration_Model.slx # Simulink model for Battery Current Source Demonstration
 ├── BLDC_Drive_Model.slx             # Simulink model for Brushless DC (BLDC) Motor Drive
-├── PMSM_Drive_Model.slx             # Simulink model for Permanent Magnet Synchronous Motor Drive
 ├── EV_Tractive_Effort_Model.slx     # Simulink model for EV Tractive Effort analysis
 ├── Tractive_Effort_Simulation.m     # MATLAB script computing tractive forces & power vs speed
 ├── assets/
 │   ├── Hero banner.png              # README header banner image
 │   └── Screenshots/
 │       ├── Aerodynamic Drag.png     # Aerodynamic drag vs speed plot
+│       ├── Battery current source demonstration.png # Battery Current Source model architecture
 │       ├── BLDC.png                 # BLDC Simulink model architecture
 │       ├── BLDC Graph.png           # BLDC simulation scope waveforms
-│       ├── PMSM.png                 # PMSM Simulink model architecture
 │       └── Rolling Resistance.png   # Tractive effort resistance components plot
 ├── LICENSE                          # MIT License
 └── README.md                        # Project documentation
@@ -105,15 +105,15 @@ EV-Matlab-Models/
 
 ---
 
-### 3. PMSM Motor Drive Model
-- **File**: [`PMSM_Drive_Model.slx`](file:///Users/krishanand/EV-Matlab-Models/PMSM_Drive_Model.slx)
-- **Description**: Implements a Permanent Magnet Synchronous Motor (PMSM) drive system, commonly employed in high-performance passenger electric vehicles. Demonstrates sinusoidal drive control, inverter switching, and magnetic flux dynamics for high torque density and efficiency.
+### 3. Battery Current Source Demonstration Model
+- **File**: [`Battery_current_source_demonstration_Model.slx`](file:///Users/krishanand/EV-Matlab-Models/Battery_current_source_demonstration_Model.slx)
+- **Description**: Demonstrates the simulation of an Electric Vehicle energy storage unit modeled as a controlled battery current source. Evaluates battery terminal behavior, current output dynamics, and electrical power delivery characteristics under varying load conditions in EV powertrain architectures.
 
 #### Simulink Model Architecture:
 <p align="center">
-  <img src="assets/Screenshots/PMSM.png" alt="PMSM Motor Drive Simulink Model" width="95%" />
+  <img src="assets/Screenshots/Battery%20current%20source%20demonstration.png" alt="Battery Current Source Demonstration Simulink Model" width="95%" />
   <br>
-  <em>Figure 5: PMSM Motor Drive Simulink Schematic with Vector / Field-Oriented Control</em>
+  <em>Figure 5: Battery Current Source Demonstration Simulink Schematic</em>
 </p>
 
 ---
@@ -185,7 +185,7 @@ The parameters configured in [`Tractive_Effort_Simulation.m`](file:///Users/kris
    or
    ```matlab
    open('BLDC_Drive_Model.slx')
-   open('PMSM_Drive_Model.slx')
+   open('Battery_current_source_demonstration_Model.slx')
    ```
 2. Click **Run** on the Simulink toolstrip to simulate the response over the designated time horizon.
 3. Open the **Scope** blocks to observe torque, speed, and phase current waveforms.
