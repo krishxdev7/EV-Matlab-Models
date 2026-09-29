@@ -5,6 +5,10 @@
 [![L&T EduTech](https://img.shields.io/badge/Industry%20Partner-L%26T%20EduTech-blue.svg)](https://lntedutech.com/)
 [![Institution](https://img.shields.io/badge/Institution-SMIT-darkgreen.svg)](https://smu.edu.in/smit.html)
 
+<p align="center">
+  <img src="assets/Hero%20banner.png" alt="Electric Vehicle Simulation Banner" width="100%" style="border-radius: 8px;" />
+</p>
+
 This repository contains MATLAB scripts and Simulink models developed and studied during the **Instructor-Led Training (ILT) sessions** delivered by **L&T EduTech**. 
 
 These sessions were conducted at **Sikkim Manipal Institute of Technology (SMIT)**, jointly organized by the **Department of Electrical & Electronics Engineering (EEE)** and the **Department of Mechanical Engineering (ME)** as part of the **Minor Specialization in Electric Vehicles and Hybrid Electric Vehicles (EV/HEV)** in collaboration with **L&T EduTech**.
@@ -40,12 +44,21 @@ The transition towards e-mobility requires multidisciplinary understanding bridg
 
 ```text
 EV-Matlab-Models/
+├── .gitignore                       # Ignored files (.DS_Store, MATLAB autosaves, cache)
 ├── BLDC_Drive_Model.slx             # Simulink model for Brushless DC (BLDC) Motor Drive
 ├── PMSM_Drive_Model.slx             # Simulink model for Permanent Magnet Synchronous Motor Drive
 ├── EV_Tractive_Effort_Model.slx     # Simulink model for EV Tractive Effort analysis
 ├── Tractive_Effort_Simulation.m     # MATLAB script computing tractive forces & power vs speed
+├── assets/
+│   ├── Hero banner.png              # README header banner image
+│   └── Screenshots/
+│       ├── Aerodynamic Drag.png     # Aerodynamic drag vs speed plot
+│       ├── BLDC.png                 # BLDC Simulink model architecture
+│       ├── BLDC Graph.png           # BLDC simulation scope waveforms
+│       ├── PMSM.png                 # PMSM Simulink model architecture
+│       └── Rolling Resistance.png   # Tractive effort resistance components plot
 ├── LICENSE                          # MIT License
-└── README.md                        # Documentation
+└── README.md                        # Project documentation
 ```
 
 ---
@@ -55,18 +68,53 @@ EV-Matlab-Models/
 ### 1. EV Tractive Effort & Vehicle Dynamics
 - **Files**: [`Tractive_Effort_Simulation.m`](file:///Users/krishanand/EV-Matlab-Models/Tractive_Effort_Simulation.m), [`EV_Tractive_Effort_Model.slx`](file:///Users/krishanand/EV-Matlab-Models/EV_Tractive_Effort_Model.slx)
 - **Description**: Evaluates the resistance forces opposing vehicle motion (rolling resistance, aerodynamic drag, grade resistance, and acceleration force) over a speed range of $0$ to $150 \text{ km/h}$. Computes total tractive effort and required motor mechanical power output.
-- **Generated Plots**:
-  1. *Tractive Effort Components vs. Vehicle Speed*
-  2. *Motor Power Requirement (kW) vs. Vehicle Speed*
-  3. *Aerodynamic Drag Force vs. Vehicle Speed*
+
+#### Simulation Results & Visualizations:
+
+<p align="center">
+  <img src="assets/Screenshots/Rolling%20Resistance.png" alt="Tractive Effort vs Speed" width="85%" />
+  <br>
+  <em>Figure 1: Vehicle Tractive Effort components (Rolling Resistance, Aerodynamic Drag, Grade Resistance, Acceleration Force, Total Tractive Effort) vs. Speed</em>
+</p>
+
+<p align="center">
+  <img src="assets/Screenshots/Aerodynamic%20Drag.png" alt="Aerodynamic Drag Force vs Speed" width="85%" />
+  <br>
+  <em>Figure 2: Aerodynamic Drag Force vs. Vehicle Speed</em>
+</p>
+
+---
 
 ### 2. BLDC Motor Drive Model
 - **File**: [`BLDC_Drive_Model.slx`](file:///Users/krishanand/EV-Matlab-Models/BLDC_Drive_Model.slx)
 - **Description**: Implements a Brushless DC (BLDC) motor traction drive in Simulink. Features three-phase inverter switching, electronic commutation via Hall effect sensors, and speed/torque dynamic response characteristic of lightweight electric vehicles.
 
+#### Simulink Model Architecture:
+<p align="center">
+  <img src="assets/Screenshots/BLDC.png" alt="BLDC Motor Drive Simulink Model" width="95%" />
+  <br>
+  <em>Figure 3: BLDC Motor Drive Simulink Schematic with Inverter, Hall Sensor Decoder, and Speed Controller</em>
+</p>
+
+#### Scope Waveforms & Response:
+<p align="center">
+  <img src="assets/Screenshots/BLDC%20Graph.png" alt="BLDC Simulation Output Waveforms" width="95%" />
+  <br>
+  <em>Figure 4: BLDC dynamic performance waveforms (Stator Current, Rotor Speed, Electromagnetic Torque)</em>
+</p>
+
+---
+
 ### 3. PMSM Motor Drive Model
 - **File**: [`PMSM_Drive_Model.slx`](file:///Users/krishanand/EV-Matlab-Models/PMSM_Drive_Model.slx)
 - **Description**: Implements a Permanent Magnet Synchronous Motor (PMSM) drive system, commonly employed in high-performance passenger electric vehicles. Demonstrates sinusoidal drive control, inverter switching, and magnetic flux dynamics for high torque density and efficiency.
+
+#### Simulink Model Architecture:
+<p align="center">
+  <img src="assets/Screenshots/PMSM.png" alt="PMSM Motor Drive Simulink Model" width="95%" />
+  <br>
+  <em>Figure 5: PMSM Motor Drive Simulink Schematic with Vector / Field-Oriented Control</em>
+</p>
 
 ---
 

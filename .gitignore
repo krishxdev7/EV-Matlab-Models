@@ -1,0 +1,24 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# MATLAB Autosave and Temporary Files
+*.asv
+*.m~
+*.autosave
+
+# Simulink Cache and Code Generation
+*.slxc
+slprj/
+sfprj/
+codegen/
+*_ert_rtw/
+
+# MATLAB Crash and Log Dumps
+matlab_crash_dump.*
